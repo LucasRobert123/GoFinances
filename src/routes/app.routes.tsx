@@ -7,7 +7,14 @@ import { Register } from "../screens/Register";
 import { useTheme } from "styled-components";
 import { Platform } from "react-native";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+export type BottomTabNavigatorRoutes = {
+  Listagem: undefined;
+  Cadastrar: undefined;
+  Resumo: undefined;
+};
+
+const { Navigator, Screen } =
+  createBottomTabNavigator<BottomTabNavigatorRoutes>();
 
 export const AppRoutes = () => {
   const { colors } = useTheme();

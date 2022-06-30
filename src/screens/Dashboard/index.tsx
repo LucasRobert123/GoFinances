@@ -48,9 +48,6 @@ export function Dashboard() {
 
   const dataKey = "@gofinances:transactions";
 
-  let entriesTotal = 0;
-  let expensiveTotal = 0;
-
   const getLastTransactionsDate = (
     data: TransactionsListProps[],
     type: "positive" | "negative"
@@ -76,6 +73,8 @@ export function Dashboard() {
       (await AsyncStorage.getItem(dataKey)) || "[]"
     );
 
+    let entriesTotal = 0;
+    let expensiveTotal = 0;
     const transactionsFormatted = transactions.map((transaction) => {
       if (transaction.type === "positive") {
         entriesTotal += Number(transaction.amount);
@@ -193,7 +192,7 @@ export function Dashboard() {
           type="total"
           title="Total"
           amount={highlightData.total?.amount}
-          lastTransaction={highlightData.total.lastTransaction}
+          lastTransaction={highlightData.total?.lastTransaction}
         />
       </HighlightCards>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import { StatusBar } from "react-native";
 import {
   useFonts,
   Poppins_400Regular,
@@ -13,6 +14,7 @@ import theme from "./src/global/styles/theme";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { AppRoutes } from "./src/routes/app.routes";
+import { SignIn } from "./src/screens/SignIn";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,7 +31,8 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <AppRoutes />
+          <StatusBar barStyle="light-content" />
+          <SignIn />
         </NavigationContainer>
       </ThemeProvider>
     </GestureHandlerRootView>

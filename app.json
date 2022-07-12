@@ -9,6 +9,9 @@
     ],
     "android": {
       "package": "com.gofinances"
+    },
+    "ios":{
+      "bundleIdentifier": "com.gofinances"
     }
   },
   "name": "gofinances"

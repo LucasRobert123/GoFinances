@@ -1,5 +1,17 @@
-import { createContext, ReactNode, useContext } from "react";
-import * as AuthSession from "expo-auth-session";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+
+const { ANDROID_CLIENT_ID } = process.env;
+const { IOS_CLIENT_ID } = process.env;
+
+import * as WebBrowser from "expo-web-browser";
+import * as Google from "expo-auth-session/providers/google";
+import { Alert } from "react-native";
 
 type AuthProviderProps = {
   children: ReactNode;
@@ -19,29 +31,43 @@ type IAuthContextData = {
 
 const AuthContext = createContext({} as IAuthContextData);
 
+WebBrowser.maybeCompleteAuthSession();
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const user = {
-    id: "4444",
-    name: "Lucas",
-    email: "lucas@gmail.com",
-  };
+  const [_, response, promptAsync] = Google.useAuthRequest({
+    scopes: ["profile", "email"],
+    androidClientId: ANDROID_CLIENT_ID,
+    iosClientId: IOS_CLIENT_ID,
+  });
+
+  const [user, setUser] = useState<User>({} as User);
+
+  useEffect(() => {
+    (async () => {
+      if (response?.type === "success") {
+        const { authentication } = response;
+
+        const result = await fetch(
+          `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${authentication.accessToken}`
+        );
+
+        const userInfo = await result.json();
+
+        setUser({
+          id: userInfo.id,
+          email: userInfo.email,
+          name: userInfo.given_name,
+          photo: userInfo.picture,
+        });
+      }
+    })();
+  }, [response]);
 
   const signInWithGoogle = async () => {
     try {
-      const CLIENT_ID =
-        "772465763841-u945bo4lubsgbbg30b6gfb544e78esso.apps.googleusercontent.com";
-      const REDIRECT_URI = "https://auth.expo.io/@lucasrobert123/gofinances";
-      const RESPONSE_TYPE = "token";
-      const SCOPE = encodeURI("profile email");
-
-      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
-
-      const response = await AuthSession.startAsync({
-        authUrl,
-        returnUrl: REDIRECT_URI,
-      }).catch(console.log);
-      console.log({ response });
+      await promptAsync();
     } catch (error) {
+      Alert.alert("Não foi possível conectar a conta Google.");
       throw new Error(error);
     }
   };

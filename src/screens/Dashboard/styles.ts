@@ -2,14 +2,17 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { FlatList, FlatListProps } from "react-native";
 import styled, { css } from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
-import { BorderlessButton } from "react-native-gesture-handler";
+import {
+  BorderlessButton,
+  GestureHandlerRootView,
+} from "react-native-gesture-handler";
 import {
   getBottomSpace,
   getStatusBarHeight,
 } from "react-native-iphone-x-helper";
 import { TransactionsListProps } from ".";
 
-export const Container = styled.View`
+export const Container = styled(GestureHandlerRootView)`
   flex: 1;
 
   background-color: ${({ theme }) => theme.colors.background};
@@ -29,11 +32,13 @@ export const UserWrapper = styled.View`
   width: 100%;
   padding: 0 24px;
 
-  margin-top: ${getStatusBarHeight() + RFValue(28)}px;
+  margin-top: ${getStatusBarHeight()}px;
 
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 24px;
 `;
 
 export const UserInfo = styled.View`

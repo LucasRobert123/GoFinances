@@ -24,6 +24,7 @@ import {
 } from "./styles";
 import { categories } from "../../utils/categories";
 import { ActivityIndicator } from "react-native";
+import { useAuth } from "../../hooks/auth";
 
 type TransactionData = {
   type: "positive" | "negative";
@@ -43,6 +44,7 @@ type CategoryData = {
 };
 
 export function Resume() {
+  const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const { colors, fonts } = useTheme();
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
@@ -60,7 +62,7 @@ export function Resume() {
 
   const loadData = async () => {
     setIsLoading(true);
-    const dataKey = "@gofinances:transactions";
+    const dataKey = `@gofinances:transactions_user:${user.id}`;
 
     const response = await AsyncStorage.getItem(dataKey);
     const responseFormatted = response ? JSON.parse(response) : [];

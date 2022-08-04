@@ -9,12 +9,12 @@
 </h4>
 
 <p align="center">
-  <a href="#rocket-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">Licença</a>
+  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-como-usar">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
 </p>
 
-## :rocket: Technologies
+## :rocket: Tecnologias
 
 Esse projeto foi desenvolvido no [Rocketseat Ignite](https://lp.rocketseat.com.br/ignite) com as seguintes tecnologias:
 
@@ -52,7 +52,7 @@ $ yarn android
 ```
 
 
-## :memo: License
+## :memo: Licença
 Este projeto está sob a licença do MIT. Veja a [LICENÇA](https://github.com/LucasRobert123/GoFinances/blob/master/LICENCE.txt) para mais informações.
 
 ---

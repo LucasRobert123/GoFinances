@@ -53,7 +53,7 @@ $ yarn android
 
 
 ## :memo: License
-Este projeto está sob a licença do MIT. Veja a [LICENSE]() para mais informações.
+Este projeto está sob a licença do MIT. Veja a [LICENÇA](https://github.com/LucasRobert123/GoFinances/blob/master/LICENCE.txt) para mais informações.
 
 ---
 

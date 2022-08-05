@@ -8,15 +8,15 @@ const icons = {
   down: "arrow-down-circle",
 };
 
-type Props = {
-  title: string;
+interface Props extends RectButtonProps {
   type: "up" | "down";
+  title: string;
   isActive: boolean;
-} & RectButtonProps;
+}
 
 export function TransactionTypeButton({
-  title,
   type,
+  title,
   isActive,
   ...rest
 }: Props) {

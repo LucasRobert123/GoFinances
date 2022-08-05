@@ -14,6 +14,10 @@
   <a href="#memo-licença">Licença</a>
 </p>
 
+<p align="center">
+  <img alt="Demo on Netlify"  src="./github/gofinances.gif">
+</p>
+
 ## :rocket: Tecnologias
 
 Esse projeto foi desenvolvido no [Rocketseat Ignite](https://lp.rocketseat.com.br/ignite) com as seguintes tecnologias:

@@ -30,7 +30,7 @@ export const Amount = styled.Text<AmountProps>`
 
   ${({ theme: { fonts, colors }, type }) => css`
     font-family: ${fonts.regular};
-    color: ${type === "positive" ? colors.sucess : colors.attention};
+    color: ${type === "positive" ? colors.success : colors.attention};
   `}
 `;
 

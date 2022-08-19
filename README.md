@@ -1,5 +1,5 @@
-<h1 align="center">
-    <img alt="React RocketShoes" src="https://res.cloudinary.com/dlbvij1i5/image/upload/v1659650504/logo_kquskj.svg" />
+<h1 align="center" >
+    <img alt="Go finances" src="https://res.cloudinary.com/dlbvij1i5/image/upload/v1659650504/logo_kquskj.svg" />
     <br>
     Go Finances
 </h1>
